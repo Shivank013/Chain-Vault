@@ -57,7 +57,7 @@ const GovDashboard = () => {
       <Box>
         <div className="    pt-16   flex flex-col">
           <Slidebar />
-          <div className="  overflow-y-hidden pl-80 pt-7">
+          <div className="  overflow-y-hidden pl-[18.38rem] pt-2">
             <div>
               <GovHome />
             </div>
