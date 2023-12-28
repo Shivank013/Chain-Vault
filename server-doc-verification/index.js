@@ -4,7 +4,6 @@ const routes = require("./routes/Routes");
 const database = require("./config/database");
 const cookieParser = require("cookie-parser");// for senging the cookies to the client on every server request
 const cors = require("cors");// (CORS = "Cross-origin-resourse-sharing") used for the interaction of the forntend with the backend
-const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -17,10 +16,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
 	cors({
-		origin:"*",
-		credentials:true,
+	  origin: "*",
+	  credentials: true,
+	  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+	  allowedHeaders: ["Content-Type", "Authorization"],
 	})
-)
+  );
 
 app.use("/api/v1/",routes);
 
