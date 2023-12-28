@@ -11,6 +11,7 @@ export function useAuthStatus() {
   useEffect(() => {
     let cancelRequest = false;
     const authToken = localStorage.getItem("psg_auth_token");
+    console.log("this is the url".API_URL)
     // console.log(authToken);
     axios
       .post(`${API_URL}/auth`, null, {
