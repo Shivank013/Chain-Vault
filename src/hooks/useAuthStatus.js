@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/v1";
+const API_URL = "https://chainvault.onrender.com/api/v1";
 
 export function useAuthStatus() {
   
@@ -11,7 +11,7 @@ export function useAuthStatus() {
   useEffect(() => {
     let cancelRequest = false;
     const authToken = localStorage.getItem("psg_auth_token");
-    console.log("this is the url".API_URL)
+    console.log("this is the url",API_URL)
     // console.log(authToken);
     axios
       .post(`${API_URL}/auth`, null, {
