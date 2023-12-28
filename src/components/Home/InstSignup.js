@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../../context/AppContext'
-import { createInstitute } from '../../services/operations/InstituteOperations'
+// import { createInstitute } from '../../services/operations/InstituteOperations'
 import CryptoJS from 'crypto-js'
 import { useForm } from 'react-hook-form'
 import { abi } from '../../Abi'
@@ -54,8 +54,8 @@ function InstSignup() {
     try {
       data.AccountNumber = account
       console.log(data)
-      const response1 = await createInstitute(data)
-      console.log(response1)
+      // const response1 = await createInstitute(data)
+      // console.log(response1)
       const secretKey = 'secret'
       const encryptedData = CryptoJS.AES.encrypt(
         JSON.stringify(data),
@@ -63,7 +63,7 @@ function InstSignup() {
       ).toString()
       const _instituteAddress = data.AccountNumber
       const _instituteData = encryptedData
-      await registerInstitute(_instituteAddress, _instituteData)
+      await registerInstitute(_instituteAddress, _instituteData,data)
       window.location.href = '/'
     } catch (error) {
       console.log(error)

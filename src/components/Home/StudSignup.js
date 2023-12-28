@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { createStudent } from '../../services/operations/StudentOperations'
+// import { createStudent } from '../../services/operations/StudentOperations'
 import { AppContext } from '../../context/AppContext'
 import CryptoJS from 'crypto-js'
 import { abi } from '../../Abi'
@@ -55,8 +55,8 @@ function StudSignup() {
     try {
       data.AccountNumber = account
       console.log(data)
-      const response1 = await createStudent(data)
-      console.log(response1)
+      // const response1 = await createStudent(data)
+      // console.log(response1)
       const secretKey = 'secret'
 
       const encryptedData = CryptoJS.AES.encrypt(
@@ -66,7 +66,7 @@ function StudSignup() {
       
       const _studentAddress = data.AccountNumber
       const _studentData = encryptedData
-       await registerStudent(_studentAddress,_studentData);
+       await registerStudent(_studentAddress,_studentData,data);
        window.location.href = '/';
     } catch (error) {
       console.log(error)

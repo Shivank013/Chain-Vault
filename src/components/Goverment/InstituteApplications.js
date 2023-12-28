@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../context/AppContext'
-import {getNonRegisteredInst,approveInst} from '../../services/operations/GovermentOperations'
+import {getNonRegisteredInst} from '../../services/operations/GovermentOperations'
 import Slidebar from './Slidebar'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -57,10 +57,10 @@ function InsttituteApplications() {
     try {
       setLoader(true);
       console.log(id, AccountNumber)
-      await approveInst(result.id, id)
+      // await approveInst(result.id, id)
       console.log('ac')
       console.log(AccountNumber)
-      await approveInstitute(AccountNumber)
+      await approveInstitute(AccountNumber,result.id,id)
       fetchData() // Fetch data again after approval
       setSliderKey((prevKey) => prevKey + 1)
       setLoader(false);

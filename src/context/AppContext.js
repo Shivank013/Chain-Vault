@@ -1,5 +1,9 @@
 import { createContext, useState } from "react";
 import toast from "react-hot-toast";
+import { createInstitute } from '../services/operations/InstituteOperations'
+import { createStudent } from '../services/operations/StudentOperations'
+import {approveInst} from '../services/operations/GovermentOperations'
+
 const {ethers} = require("ethers");
 
 export const AppContext = createContext();
@@ -23,6 +27,7 @@ export default function AppContextProvider ({children}) {
     const [contract, setContract] = useState(null);
     const [provider, setProvider] = useState(null);
     const [contractAddress, setContractAddress] = useState("0x52373c67816378C9a46470E241A41f64C9De25B8");
+
     const [certificateData, SetCertificateData] = useState({});
     const [showSlider, SetShowSlider] = useState(false);
     const [index,setIndex] = useState(0);
@@ -222,11 +227,13 @@ export default function AppContextProvider ({children}) {
       }
     }
 
-    async function approveInstitute(_instituteAddress){
+    async function approveInstitute(_instituteAddress,a,b){
       const toastId = toast.loading("Loading...");
       try{
         await contract.approveInstitute(_instituteAddress);
         toast.dismiss(toastId);
+        const res = await approveInst(a,b);
+        console.log(res);
         toast.success("Approved")
       } catch(error){
             if (error.data) {
@@ -263,12 +270,14 @@ export default function AppContextProvider ({children}) {
       }
     }
 
-    async function registerInstitute(_instituteAddress,_instituteData){
+    async function registerInstitute(_instituteAddress,_instituteData,data){
       const toastId = toast.loading("Loading...");
       try{
         await contract.registerInstitute(_instituteAddress,_instituteData);
         console.log("success");
         toast.dismiss(toastId);
+        const res = await createInstitute(data);
+        console.log(res);
         toast.success("Registered Successfully")
       } catch(error){
             if (error.data) {
@@ -284,11 +293,13 @@ export default function AppContextProvider ({children}) {
       }
     }
 
-    async function registerStudent(_studentAddress,_studentData){
+    async function registerStudent(_studentAddress,_studentData,data){
       const toastId = toast.loading("Loading...");
       try{
         await contract.registerStudent(_studentAddress,_studentData);
         toast.dismiss(toastId);
+        const res = await createStudent(data);
+        console.log(res);
         toast.success("Registered Successfully")
       } catch(error){
             if (error.data) {

@@ -50,6 +50,7 @@ function GovSignup() {
   const onSubmit = async (data) => {
     console.log(data)
     const response = await createGoverment(data)
+    // window.location.href = '/'
     console.log(response)
   }
 
