@@ -42,7 +42,7 @@ const Navbar = () => {
     },
     {
       name: "Contact",
-      route: "contact",
+      route: "/contact",
     },
   ];
 
@@ -97,6 +97,20 @@ const Navbar = () => {
                     }
                   >
                     Home
+                  </Link>
+
+                  <Link
+                    to="/contact"
+                    activeClass={"text-white bg-blue-500"}
+                    spy={true}
+                    smooth={true}
+                    className={
+                      darkMode
+                        ? "block py-2 px-3 text-black hover:bg-blue-500 hover:text-white rounded-md"
+                        : "block py-2 px-3 text-white hover:bg-blue-500 hover:text-black rounded-md"
+                    }
+                  >
+                    Contact
                   </Link>
 
                   {

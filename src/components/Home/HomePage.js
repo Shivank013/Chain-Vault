@@ -158,7 +158,7 @@ function Homepage() {
         </div>
         <div
           style={{ backgroundImage: `url(${backGradient})` }}
-          className=" w-screen h-[15rem] object-contain py-10 -z-5"
+          className=" w-full bg-cover h-[15rem] object-contain py-10 -z-5"
         ></div>
       </div>
 

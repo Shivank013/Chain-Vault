@@ -4,7 +4,7 @@ import { AppContext } from '../../context/AppContext'
 import { IoMdReturnRight } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
-const Noprofilewarning = () => {
+const MetamaskWarning = () => {
 
   const {setResult} = useContext(AppContext);
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Noprofilewarning = () => {
         </div>
 
         <div className=" mt-4">
-          <p>Yo have not registered go back and <span className=" text-yellow-50">SignUpS</span>          </p>
+          <p>Yo have not installed the <span className=" text-yellow-50">Metamask</span>          </p>
 
             <button onClick={bahar} className="mt-4 text-red-500 hover:text-red-700 font-semibold flex items-center">
               Go back
@@ -47,4 +47,4 @@ const Noprofilewarning = () => {
   );
 };
 
-export default Noprofilewarning;
+export default MetamaskWarning;

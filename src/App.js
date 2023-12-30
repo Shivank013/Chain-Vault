@@ -27,6 +27,7 @@ import './App.css'
 import { ThemeProvider } from './themeProvider'
 import Preloader from './components/Home/Preloader'
 import { useState, useEffect } from 'react'
+import Contact from './components/Contact/Contact'
 
 const dotenv = require('dotenv')
 
@@ -108,6 +109,10 @@ function App() {
           <Route
             path="/dashboard/student/my-certificates"
             element={<MyCertificates />}
+          />
+          <Route
+            path="/contact"
+            element={<Contact />}
           />
           <Route path="/signup/goverment" element={<GovSignup />} />
           <Route path="/signup/institute" element={<InstSignup />} />
