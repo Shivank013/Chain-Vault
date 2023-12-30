@@ -29,7 +29,7 @@ function Contact() {
   return (
     <div style={{backgroundImage: `url(${bg})`, backgroundSize: 'cover'}} className='unique-herosection pt-[4.5rem] h-screen  unique-body'>
       <div className="unique-form-page">
-        <div className='flex my-[5rem] shadow-2xl bg-slate-50 rounded-3xl'>
+        <div className='flex justify-center scale-90 items-center my-[5rem] shadow-2xl bg-slate-50 rounded-3xl'>
           <img className='' src={img} alt="" />
           <form
             ref={formRef}

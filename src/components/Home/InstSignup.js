@@ -23,16 +23,17 @@ function InstSignup() {
   const { registerInstitute } = useContext(AppContext)
 
   const { account, setAccount, contractAddress, setContract, setProvider } = useContext(AppContext)
-  const [provider, setp] = useState()
+  const [p, setp] = useState(true)
+  var provider = null;
 
   useEffect(() => {
     try{
-      const p = new ethers.providers.Web3Provider(window.ethereum)
-      setp(p);
+      provider = new ethers.providers.Web3Provider(window.ethereum)
     } catch(error){
       console.log("Metamask Not Installed");
+      setp(false);
     }
-
+    
     const loadProvider = async () => {
       if (provider) {
         window.ethereum.on('chainChanged', () => {
@@ -85,7 +86,7 @@ function InstSignup() {
     >
 
     {
-      provider ? (null) : (<MetamaskWarning/>)
+      p ? (null) : (<MetamaskWarning/>)
     }
 
       <form

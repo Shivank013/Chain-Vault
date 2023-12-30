@@ -24,15 +24,15 @@ function StudSignup() {
   const { registerStudent } = useContext(AppContext)
 
   const { account, setAccount, contractAddress, setContract, setProvider } = useContext(AppContext)
-  const [provider, setp] = useState()
-
+  const [p, setp] = useState(true)
+  var provider = null;
 
   useEffect(() => {
     try{
-      const p = new ethers.providers.Web3Provider(window.ethereum)
-      setp(p);
+      provider = new ethers.providers.Web3Provider(window.ethereum)
     } catch(error){
       console.log("Metamask Not Installed");
+      setp(false);
     }
 
     const loadProvider = async () => {
@@ -90,7 +90,7 @@ function StudSignup() {
       {/* <img class="   h-full w-full object-cover" src={circle} alt="Your Image" /> */}
 
       {
-      provider ? (null) : (<MetamaskWarning/>)
+      p ? (null) : (<MetamaskWarning/>)
       }
 
       <form
