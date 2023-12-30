@@ -175,19 +175,19 @@ const Navbar = () => {
                         background={'white'}
                       >
                         {' '}
-                        <Link to={'/signup/goverment'}>Goverment</Link>
+                        <Link className="w-full" to={'/signup/goverment'}>Goverment</Link>
                       </MenuItem>
                       <MenuItem
                         className="text-black hover:bg-blue-500"
                         background={'white'}
                       >
-                        <Link to={'/signup/institute'}>Institute</Link>
+                        <Link className="w-full" to={'/signup/institute'}>Institute</Link>
                       </MenuItem>
                       <MenuItem
                         className="text-black hover:bg-blue-500"
                         background={'white'}
                       >
-                        <Link to={'/signup/student'}>Student</Link>
+                        <Link className="w-full" to={'/signup/student'}>Student</Link>
                       </MenuItem>
                     </MenuList>
                   </Menu>

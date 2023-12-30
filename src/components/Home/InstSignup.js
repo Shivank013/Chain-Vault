@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../context/AppContext'
 // import { createInstitute } from '../../services/operations/InstituteOperations'
 import CryptoJS from 'crypto-js'
@@ -10,6 +10,7 @@ import '../../App.css'
 import { AiOutlineMail } from 'react-icons/ai'
 import { FcContacts } from 'react-icons/fc'
 import { BiSolidInstitution } from 'react-icons/bi'
+import MetamaskWarning from './MetamaskWarning'
 
 const { ethers } = require('ethers')
 function InstSignup() {
@@ -21,11 +22,16 @@ function InstSignup() {
   } = useForm()
   const { registerInstitute } = useContext(AppContext)
 
-  const { account, setAccount, contractAddress, setContract, setProvider } =
-    useContext(AppContext)
+  const { account, setAccount, contractAddress, setContract, setProvider } = useContext(AppContext)
+  const [provider, setp] = useState()
 
   useEffect(() => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    try{
+      const p = new ethers.providers.Web3Provider(window.ethereum)
+      setp(p);
+    } catch(error){
+      console.log("Metamask Not Installed");
+    }
 
     const loadProvider = async () => {
       if (provider) {
@@ -77,6 +83,10 @@ function InstSignup() {
         backgroundImage: `url('https://i.ibb.co/Js9701v/Desktop-2-2.png')`,
       }}
     >
+
+    {
+      provider ? (null) : (<MetamaskWarning/>)
+    }
 
       <form
         onSubmit={handleSubmit(onSubmit)}
