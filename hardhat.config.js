@@ -13,7 +13,7 @@ module.exports = {
       accounts: [`${MYGANACHE_PRIVATE_KEY}`],
     },
     sepolia:{
-      url:`https://eth-sepolia.g.alchemy.com/v2/sf39tXYaITLKFylXyF8cTfkWnHRHqbpI`,
+      url:`https://eth-sepolia.g.alchemy.com/v2/0fYZRn5HYQkf_qB_enttk1djG82-TVXt`,
       accounts:[`${PRIVATE_KEY}`]
     }
   },
