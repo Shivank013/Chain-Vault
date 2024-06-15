@@ -50,7 +50,7 @@ const Verification = () => {
 
       <div className="bg-red-400 p-8 rounded-lg shadow-md border-2 border-black">
         <h1 className="text-2xl font-bold mb-4 text-center ">
-          QR Code Scanning in React
+          Scann the QR Code for verification
         </h1>
 
         <div className="bg-white w-[25rem] mx-6">
